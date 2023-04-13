@@ -4,7 +4,7 @@ Portfolio
 ```python
 print('Hello World')
 ``` 
-This is my [Portfolio page](https://linehb.github.io/)
+<!-- This is my [Portfolio page](https://linehb.github.io/) -->
 
 ## Section 2
-![](images/testimg.jpg)
+<!-- [](images/testimg.jpg) -->

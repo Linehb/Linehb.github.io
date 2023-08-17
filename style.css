@@ -77,6 +77,19 @@ p {
   color: rgb(61, 61, 116);
 }
 /* - End Text Icon */
+/* - Scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(60deg, rgba(61, 61, 116, 0.599) 0%, #2b91ad90 100%);
+  border-radius: 10px;
+}
+/* - End Scrollbar */
 /* End Main Elements*/
 
 /* Main: Header Section */
@@ -117,7 +130,7 @@ p {
   transition: .5s ease;
 }
 #header .nav-bar ul.bar {
-  background-color: #755f94;
+  background-color: hsl(180, 50%, 50%);
   left: 0%;
 }
 #header .nav-bar ul a {
@@ -128,9 +141,12 @@ p {
   text-transform: uppercase;
   display: block;
   padding: 20px;
+  transition: 0.3s;
 }
-#header .nav-bar ul li a:hover  {
+#header .navigation .nav-bar ul li a:hover {
   color: #2B91AD;
+  border-bottom: 1px solid #2B91AD;
+  padding: 10px;
 }
 #header .nav-bar ul a::after {
   content: attr(data-after);
@@ -139,8 +155,7 @@ p {
   top: 50%;
   left: 50%;
   color: rgba(240, 248, 255, 0.021);
-  font-size: 10rem;
-  /* letter-spacing: 50px; */
+  font-size: 3.7rem;
   transform: translate(-50%, -50%) scale(0);
   transition: .3s ease letter-spacing;
   letter-spacing: 0.1em;
@@ -215,11 +230,13 @@ p {
 
 /* Top: Hero Section */
 #hero {
-  background-image: url(./images/testimg.jpg);
+  background-image: url(./images/testimg2.png);
   background-size: cover;
   background-position: top center;
   position: relative;
   z-index: 1;
+  margin-top: -2px;
+  margin-left: -2px;
 }
 /* - Overlay after-effect */
 #hero::after {
@@ -229,7 +246,7 @@ p {
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(60deg, rgb(61, 61, 116) 0%, #2B91AD 100%);
+  background-image: linear-gradient(60deg, rgba(61, 61, 116, 0.147) 0%, #2b91ad18 100%);
   opacity: .5;
   z-index: -1;
 }
@@ -363,6 +380,41 @@ p {
   padding-bottom: 0px;
 }
 /* - Card */
+#more {
+  display: none;
+}
+#myBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  padding-left: 25px;
+}
+#myBtn img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20px;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 25px;
+  position: absolute;
+  margin-left: 120px;
+}
+.jump {
+  transform-origin: 50% 50%;
+  animation: jump .5s linear alternate infinite;
+  margin-bottom: 12px;
+}
+#myBtn:focus {
+  padding-right: 25px;
+  padding-left: 25px;
+}
 #projects .projects-cards {
   display: flex;
   align-items: start;
@@ -375,7 +427,7 @@ p {
   justify-content: center;
   flex-direction: column;
   width: 80%;
-  margin: 20px auto;
+  margin: 5px auto;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -410,11 +462,19 @@ p {
 /* - Image */
 #projects .projects-image {
   flex-basis: 50%;
-  height: 300px;
+  height: 200px;
   overflow: hidden;
   position: relative;
   margin-bottom: -3px;
-  /* border-radius: 15px 90px 90px 90px; */
+  -webkit-filter: brightness(65%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+#projects .projects-data:hover .projects-image {
+  -webkit-filter: brightness(100%);
 }
 #projects .projects-data:nth-child(odd) .projects-image {
   border-radius: 15px 90px 90px 90px;
@@ -436,13 +496,21 @@ p {
 }
 #projects .projects-data:hover .projects-image img {
   transform: scale(1.1);
-  background: linear-gradient(60deg, rgba(61, 61, 116, 0.322) 0%, #2b91ad00 100%);
+  background: linear-gradient(60deg, #2b91ad3b 0%, rgba(61, 61, 116, 0.267) 100%);
 }
 #projects .projects-data:nth-child(even) .projects-info {
   border-radius: 15px 90px 15px;
 }
 #projects .projects-data:nth-child(odd) .projects-info {
   border-radius: 90px 15px 90px;
+}
+#projects #project1 img {
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  object-fit: contain;
 }
 /* - End Image */
 /* End Second Project Section */
@@ -630,10 +698,20 @@ p {
   }
 }
 /* - End Hero text */
+/* - Projects button */
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
+  100% {transform: translate3d(0,50%,0) scale3d(1.5,.7,1);}
+}
+/* - End Projects button */
 /* End Keyframe */
 
 /* MediaQuery - Tablet */
 @media only screen and (min-width: 768px) {
+  #header .nav-bar ul.bar li:hover a::after {
+    font-size: 7rem;
+  }
   .btn {
     font-size: 2rem;
     padding: 20px 76px;
@@ -672,6 +750,10 @@ p {
     height: 100%;
     width: 100%;
     margin: 0 auto;
+  }
+  #myBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   /* - End Second Project Section */
   /* - Third About Section */
@@ -770,6 +852,18 @@ p {
   }
   #projects .projects-heading h1 {
     margin-bottom: 25px;
+  }
+  #projects #project1 img {
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  object-fit: contain;
+}
+  #myBtn {
+    margin-top: 20px;
+    margin-bottom: 0;
   }
   #about .about {
     margin-top: 20px;

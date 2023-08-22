@@ -509,7 +509,7 @@ p {
 #projects .projects-data:nth-child(odd) .projects-info {
   border-radius: 90px 15px 90px;
 }
-#projects #project1 #project2 img {
+#projects #project1 img {
   padding-right: 50px;
   padding-left: 50px;
   padding-top: 0;
@@ -858,7 +858,7 @@ p {
   #projects .projects-heading h1 {
     margin-bottom: 25px;
   }
-  #projects #project1 #project2 img {
+  #projects #project1 img {
   padding-right: 50px;
   padding-left: 50px;
   padding-top: 0;
